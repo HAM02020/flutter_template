@@ -22,10 +22,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "blog": MessageLookupByLibrary.simpleMessage("博客"),
         "countTimes": MessageLookupByLibrary.simpleMessage("当前的数字是："),
         "helloworld": MessageLookupByLibrary.simpleMessage("你好世界"),
+        "home": MessageLookupByLibrary.simpleMessage("首页"),
+        "listTile": MessageLookupByLibrary.simpleMessage("列表项"),
         "myname": MessageLookupByLibrary.simpleMessage("莫莫"),
         "secondPage": MessageLookupByLibrary.simpleMessage("这里上第二页"),
+        "server": MessageLookupByLibrary.simpleMessage("服务"),
         "toSecondPage": MessageLookupByLibrary.simpleMessage("去到第二页")
       };
 }
