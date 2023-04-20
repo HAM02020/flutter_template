@@ -1,8 +1,8 @@
-import 'package:{{{name.snakeCase()}}}/bloc/app_bloc_oberver.dart';
-import 'package:{{{name.snakeCase()}}}/configs/routes.dart';
-import 'package:{{{name.snakeCase()}}}/cubit/user_setting_bloc.dart';
-import 'package:{{{name.snakeCase()}}}/generated/l10n.dart';
-import 'package:{{{name.snakeCase()}}}/pages/home.dart';
+import 'package:{{name.snakeCase()}}/bloc/app_bloc_oberver.dart';
+import 'package:{{name.snakeCase()}}/configs/routes.dart';
+import 'package:{{name.snakeCase()}}/cubit/user_setting_bloc.dart';
+import 'package:{{name.snakeCase()}}/generated/l10n.dart';
+import 'package:{{name.snakeCase()}}/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';

@@ -1,5 +1,5 @@
-import 'package:{{{name.snakeCase()}}}/cubit/user_setting_bloc.dart';
-import 'package:{{{name.snakeCase()}}}/generated/l10n.dart';
+import 'package:{{name.snakeCase()}}/cubit/user_setting_bloc.dart';
+import 'package:{{name.snakeCase()}}/generated/l10n.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
