@@ -3,5 +3,9 @@
     "toSecondPage":"to second page",
     "secondPage":"this is the second Page",
     "countTimes":"current total count is:",
-    "myname":"momo"
+    "myname":"momo",
+    "home":"home",
+    "server":"server",
+    "blog":"blog",
+    "listTile":"listTile"
 }

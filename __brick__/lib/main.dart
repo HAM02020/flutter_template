@@ -1,5 +1,6 @@
-import 'package:{{name.snakeCase()}}/bloc/app_bloc_oberver.dart';
-import 'package:{{name.snakeCase()}}/configs/routes.dart';
+import 'package:{{name.snakeCase()}}/app/app_bloc_oberver.dart';
+import 'package:{{name.snakeCase()}}/app/routes.dart';
+import 'package:__brick__/bloc/bloc/counter_bloc.dart';
 import 'package:{{name.snakeCase()}}/cubit/user_setting_bloc.dart';
 import 'package:{{name.snakeCase()}}/generated/l10n.dart';
 import 'package:{{name.snakeCase()}}/pages/home.dart';
@@ -18,10 +19,11 @@ void main() async {
 
   HydratedBloc.storage = await HydratedStorage.build(
       storageDirectory: await getApplicationDocumentsDirectory());
-  GetIt.instance.registerSingleton<UserSettingCubit>(UserSettingCubit());
+  GetIt.I.registerSingleton<UserSettingCubit>(UserSettingCubit());
+  GetIt.I.registerSingleton<CounterBloc>(CounterBloc());
   Bloc.observer = const AppBlocObserver();
   runApp(BlocProvider(
-    create: (context) => GetIt.instance.get<UserSettingCubit>(),
+    create: (_) => GetIt.I.get<UserSettingCubit>(),
     child: BlocBuilder<UserSettingCubit, UserSettingState>(
       builder: (context, state) {
         return MaterialApp.router(

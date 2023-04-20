@@ -22,12 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "blog": MessageLookupByLibrary.simpleMessage("blog"),
         "countTimes":
             MessageLookupByLibrary.simpleMessage("current total count is:"),
         "helloworld": MessageLookupByLibrary.simpleMessage("helloWorld"),
+        "home": MessageLookupByLibrary.simpleMessage("home"),
+        "listTile": MessageLookupByLibrary.simpleMessage("listTile"),
         "myname": MessageLookupByLibrary.simpleMessage("momo"),
         "secondPage":
             MessageLookupByLibrary.simpleMessage("this is the second Page"),
+        "server": MessageLookupByLibrary.simpleMessage("server"),
         "toSecondPage": MessageLookupByLibrary.simpleMessage("to second page")
       };
 }
