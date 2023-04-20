@@ -1,6 +1,6 @@
 {
-    "name": "{{name.snakeCase()}}",
-    "short_name": "{{name.snakeCase()}}",
+    "name": "{{{name.snakeCase()}}}",
+    "short_name": "{{{name.snakeCase()}}}",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
