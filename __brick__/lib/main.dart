@@ -1,6 +1,6 @@
 import 'package:{{name.snakeCase()}}/app/app_bloc_oberver.dart';
 import 'package:{{name.snakeCase()}}/app/routes.dart';
-import 'package:__brick__/bloc/bloc/counter_bloc.dart';
+import 'package:{{name.snakeCase()}}/bloc/bloc/counter_bloc.dart';
 import 'package:{{name.snakeCase()}}/cubit/user_setting_bloc.dart';
 import 'package:{{name.snakeCase()}}/generated/l10n.dart';
 import 'package:{{name.snakeCase()}}/pages/home.dart';
