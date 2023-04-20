@@ -99,6 +99,46 @@ class S {
       args: [],
     );
   }
+
+  /// `home`
+  String get home {
+    return Intl.message(
+      'home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `server`
+  String get server {
+    return Intl.message(
+      'server',
+      name: 'server',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `blog`
+  String get blog {
+    return Intl.message(
+      'blog',
+      name: 'blog',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `listTile`
+  String get listTile {
+    return Intl.message(
+      'listTile',
+      name: 'listTile',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
