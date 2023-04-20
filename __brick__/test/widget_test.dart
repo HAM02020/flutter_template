@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:__brick__/main.dart';
+import 'package:{{name.snakeCase()}}/main.dart';
 //import 'package:{{project_name.snakeCase()}}/main.dart';
 
 void main() {

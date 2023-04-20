@@ -1,4 +1,4 @@
-import 'package:__brick__/configs/color_schemes.dart';
+import 'package:{{name.snakeCase()}}/configs/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
