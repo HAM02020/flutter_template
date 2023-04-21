@@ -21,19 +21,21 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
   void setLocaleMode(UserLocaleMode localeMode) {
     Locale locale = state.locale;
     switch (localeMode) {
+      case UserLocaleMode.en:
+        locale = const Locale('en');
+        break;
       case UserLocaleMode.zh:
         locale = const Locale('zh');
         break;
-      case UserLocaleMode.en:
-        locale = const Locale('en');
+      case UserLocaleMode.system:
         break;
       default:
         break;
     }
     emit(UserSettingState(
-        localMode: localeMode,
         userTheme: state.userTheme,
         key: state.key,
+        localMode: localeMode,
         locale: locale));
   }
 
@@ -81,8 +83,12 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
         break;
     }
     String key = json["user_key_value"];
+
     return UserSettingState(
-        localMode: localeMode, userTheme: userTheme, key: key);
+      localMode: localeMode,
+      userTheme: userTheme,
+      key: key,
+    );
   }
 
   @override
