@@ -7,18 +7,19 @@ enum UserLocaleMode { en, zh, system }
 class UserSettingState {
   final UserTheme userTheme;
   final UserLocaleMode localMode;
+  final Locale locale;
   final String key;
 
-  Locale get locale {
-    switch (localMode) {
-      case UserLocaleMode.zh:
-        return const Locale('zh');
-      case UserLocaleMode.en:
-        return const Locale('en');
-      default:
-        return const Locale('en');
-    }
-  }
+  // Locale get locale {
+  //   switch (localMode) {
+  //     case UserLocaleMode.zh:
+  //       return const Locale('zh');
+  //     case UserLocaleMode.en:
+  //       return const Locale('en');
+  //     default:
+  //       return const Locale('en');
+  //   }
+  // }
 
   ThemeMode get themeMode {
     switch (userTheme) {
@@ -33,12 +34,18 @@ class UserSettingState {
 
   const UserSettingState(
       {this.localMode = UserLocaleMode.system,
+      this.locale = const Locale('en'),
       required this.userTheme,
       required this.key});
 
   UserSettingState copyWith(
-      {UserTheme? userTheme, Locale? locale, String? key}) {
+      {UserTheme? userTheme,
+      Locale? locale,
+      String? key,
+      UserLocaleMode? userLocaleMode}) {
     return UserSettingState(
-        userTheme: userTheme ?? this.userTheme, key: key ?? this.key);
+        userTheme: userTheme ?? this.userTheme,
+        key: key ?? this.key,
+        localMode: userLocaleMode ?? localMode);
   }
 }

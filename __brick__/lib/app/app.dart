@@ -1,6 +1,7 @@
 import 'package:__brick__/app/routes.dart';
 import 'package:__brick__/bloc/user_settings/user_setting_bloc.dart';
 import 'package:__brick__/generated/l10n.dart';
+import 'package:__brick__/utils/log/log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -41,7 +42,18 @@ class AppView extends StatelessWidget {
             S.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          locale: BlocProvider.of<UserSettingCubit>(context).state.locale,
+          locale: state.locale,
+          localeResolutionCallback: (locale, supportedLocales) {
+            if (state.localMode == UserLocaleMode.system &&
+                state.locale.languageCode != locale?.languageCode) {
+              zkLog(
+                  'locale?.languageCode=${locale?.languageCode}, state.local.languageCode=${state.locale.languageCode}, != ${locale?.languageCode != state.locale.languageCode}');
+              BlocProvider.of<UserSettingCubit>(context).setLocale(locale!);
+              return state.locale;
+            }
+
+            return locale!;
+          },
           builder: EasyLoading.init(
             builder: (context, child) {
               ScreenUtil.init(context);
