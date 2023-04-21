@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+ThemeData darkTheme =
+    ThemeData(useMaterial3: true, colorScheme: darkColorScheme);
+ThemeData lightTheme =
+    ThemeData(useMaterial3: true, colorScheme: lightColorScheme);
+
 const Color zk_color_black = Color(0xFF292526);
 const Color zk_color_grey = Color(0xFFD9D9D6);
 const Color zk_color_logo_1 = Color(0xFF7AC143);

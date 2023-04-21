@@ -90,21 +90,11 @@ class S {
     );
   }
 
-  /// `momo`
-  String get myname {
+  /// `demo`
+  String get demo {
     return Intl.message(
-      'momo',
-      name: 'myname',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `home`
-  String get home {
-    return Intl.message(
-      'home',
-      name: 'home',
+      'demo',
+      name: 'demo',
       desc: '',
       args: [],
     );
@@ -135,6 +125,76 @@ class S {
     return Intl.message(
       'listTile',
       name: 'listTile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chinese`
+  String get Chinese {
+    return Intl.message(
+      'Chinese',
+      name: 'Chinese',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get English {
+    return Intl.message(
+      'English',
+      name: 'English',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `System`
+  String get system {
+    return Intl.message(
+      'System',
+      name: 'system',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `lightMode`
+  String get lightMode {
+    return Intl.message(
+      'lightMode',
+      name: 'lightMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `darkMode`
+  String get darkMode {
+    return Intl.message(
+      'darkMode',
+      name: 'darkMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `changeLocale`
+  String get changeLocale {
+    return Intl.message(
+      'changeLocale',
+      name: 'changeLocale',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `changeThemeMode`
+  String get changeThemeMode {
+    return Intl.message(
+      'changeThemeMode',
+      name: 'changeThemeMode',
       desc: '',
       args: [],
     );

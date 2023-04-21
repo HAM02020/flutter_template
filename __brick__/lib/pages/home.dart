@@ -1,6 +1,5 @@
-import 'package:__brick__/cubit/user_setting_bloc.dart';
 import 'package:__brick__/generated/l10n.dart';
-import 'package:__brick__/bloc/bloc/counter_bloc.dart';
+import 'package:__brick__/bloc/counter/counter_bloc.dart';
 import 'package:__brick__/pages/demo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,13 +28,13 @@ class _MyHomePageState extends State<MyHomePage> {
               }),
           items: [
             BottomNavigationBarItem(
-                icon: const FaIcon(FontAwesomeIcons.house),
-                label: S.of(context).home),
+                icon: const FaIcon(FontAwesomeIcons.brush),
+                label: S.of(context).demo),
             BottomNavigationBarItem(
                 icon: const FaIcon(FontAwesomeIcons.server),
                 label: S.of(context).server),
             BottomNavigationBarItem(
-                icon: const FaIcon(FontAwesomeIcons.weibo),
+                icon: const FaIcon(FontAwesomeIcons.landmark),
                 label: S.of(context).blog),
           ]),
       drawer: Drawer(

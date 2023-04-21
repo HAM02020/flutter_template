@@ -22,16 +22,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Chinese": MessageLookupByLibrary.simpleMessage("Chinese"),
+        "English": MessageLookupByLibrary.simpleMessage("English"),
         "blog": MessageLookupByLibrary.simpleMessage("blog"),
+        "changeLocale": MessageLookupByLibrary.simpleMessage("changeLocale"),
+        "changeThemeMode":
+            MessageLookupByLibrary.simpleMessage("changeThemeMode"),
         "countTimes":
             MessageLookupByLibrary.simpleMessage("current total count is:"),
+        "darkMode": MessageLookupByLibrary.simpleMessage("darkMode"),
+        "demo": MessageLookupByLibrary.simpleMessage("demo"),
         "helloworld": MessageLookupByLibrary.simpleMessage("helloWorld"),
-        "home": MessageLookupByLibrary.simpleMessage("home"),
+        "lightMode": MessageLookupByLibrary.simpleMessage("lightMode"),
         "listTile": MessageLookupByLibrary.simpleMessage("listTile"),
-        "myname": MessageLookupByLibrary.simpleMessage("momo"),
         "secondPage":
             MessageLookupByLibrary.simpleMessage("this is the second Page"),
         "server": MessageLookupByLibrary.simpleMessage("server"),
+        "system": MessageLookupByLibrary.simpleMessage("System"),
         "toSecondPage": MessageLookupByLibrary.simpleMessage("to second page")
       };
 }

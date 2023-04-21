@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 
-void log(Object? object) {
+void zkLog(Object? object) {
   if (kDebugMode) {
-    print(object);
+    log(object.toString());
   }
 }

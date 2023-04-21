@@ -3,9 +3,15 @@
     "toSecondPage":"to second page",
     "secondPage":"this is the second Page",
     "countTimes":"current total count is:",
-    "myname":"momo",
-    "home":"home",
+    "demo":"demo",
     "server":"server",
     "blog":"blog",
-    "listTile":"listTile"
+    "listTile":"listTile",
+    "Chinese":"Chinese",
+    "English": "English",
+    "system": "System",
+    "lightMode":"lightMode",
+    "darkMode":"darkMode",
+    "changeLocale": "changeLocale",
+    "changeThemeMode": "changeThemeMode"
 }

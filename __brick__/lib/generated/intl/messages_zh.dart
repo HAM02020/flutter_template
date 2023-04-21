@@ -22,14 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Chinese": MessageLookupByLibrary.simpleMessage("中文"),
+        "English": MessageLookupByLibrary.simpleMessage("英文"),
         "blog": MessageLookupByLibrary.simpleMessage("博客"),
+        "changeLocale": MessageLookupByLibrary.simpleMessage("更改语言"),
+        "changeThemeMode": MessageLookupByLibrary.simpleMessage("更改主题配色"),
         "countTimes": MessageLookupByLibrary.simpleMessage("当前的数字是："),
+        "darkMode": MessageLookupByLibrary.simpleMessage("夜间模式"),
+        "demo": MessageLookupByLibrary.simpleMessage("演示"),
         "helloworld": MessageLookupByLibrary.simpleMessage("你好世界"),
-        "home": MessageLookupByLibrary.simpleMessage("首页"),
+        "lightMode": MessageLookupByLibrary.simpleMessage("日间模式"),
         "listTile": MessageLookupByLibrary.simpleMessage("列表项"),
-        "myname": MessageLookupByLibrary.simpleMessage("莫莫"),
         "secondPage": MessageLookupByLibrary.simpleMessage("这里上第二页"),
         "server": MessageLookupByLibrary.simpleMessage("服务"),
+        "system": MessageLookupByLibrary.simpleMessage("跟随系统"),
         "toSecondPage": MessageLookupByLibrary.simpleMessage("去到第二页")
       };
 }

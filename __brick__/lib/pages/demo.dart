@@ -1,5 +1,5 @@
-import 'package:__brick__/bloc/bloc/counter_bloc.dart';
-import 'package:__brick__/cubit/user_setting_bloc.dart';
+import 'package:__brick__/bloc/counter/counter_bloc.dart';
+import 'package:__brick__/bloc/user_settings/user_setting_bloc.dart';
 import 'package:__brick__/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +14,8 @@ class DemoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CounterBloc, CounterState>(
       builder: (context, state) {
+        var userSettingCubit = context.watch<UserSettingCubit>();
+
         return Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -68,31 +70,105 @@ class DemoPage extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 50,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const FaIcon(FontAwesomeIcons.language),
-                  Switch(
-                      value: GetIt.I.get<UserSettingCubit>().isEnglish,
-                      onChanged: (value) =>
-                          GetIt.I.get<UserSettingCubit>().switchLocale()),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(S.of(context).changeLocale)
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Text(S.of(context).Chinese),
+                      Radio(
+                        value: UserLocaleMode.zh,
+                        groupValue: userSettingCubit.state.localMode,
+                        onChanged: (value) =>
+                            userSettingCubit.setLocaleMode(value!),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(S.of(context).English),
+                      Radio(
+                        value: UserLocaleMode.en,
+                        groupValue: userSettingCubit.state.localMode,
+                        onChanged: (value) =>
+                            userSettingCubit.setLocaleMode(value!),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(S.of(context).system),
+                      Radio(
+                        value: UserLocaleMode.system,
+                        groupValue: userSettingCubit.state.localMode,
+                        onChanged: (value) =>
+                            userSettingCubit.setLocaleMode(value!),
+                      )
+                    ],
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const FaIcon(FontAwesomeIcons.moon),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(S.of(context).changeThemeMode),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const FaIcon(FontAwesomeIcons.moon),
-                  Switch(
-                    onChanged: (bool value) =>
-                        BlocProvider.of<UserSettingCubit>(context)
-                            .switchTheme(),
-                    value:
-                        BlocProvider.of<UserSettingCubit>(context).isDarkMode,
-                  )
+                  Row(
+                    children: [
+                      Text(S.of(context).lightMode),
+                      Radio(
+                        value: UserTheme.light,
+                        groupValue: userSettingCubit.state.userTheme,
+                        onChanged: (value) => userSettingCubit.setTheme(value!),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(S.of(context).darkMode),
+                      Radio(
+                        value: UserTheme.dark,
+                        groupValue: userSettingCubit.state.userTheme,
+                        onChanged: (value) {
+                          userSettingCubit.setTheme(value!);
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text(S.of(context).system),
+                      Radio(
+                        value: UserTheme.system,
+                        groupValue: userSettingCubit.state.userTheme,
+                        onChanged: (value) => userSettingCubit.setTheme(value!),
+                      ),
+                    ],
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         );

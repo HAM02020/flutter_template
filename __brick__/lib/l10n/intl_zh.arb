@@ -3,9 +3,16 @@
     "toSecondPage": "去到第二页",
     "secondPage": "这里上第二页",
     "countTimes":"当前的数字是：",
-    "myname":"莫莫",
-    "home":"首页",
+
+    "demo":"演示",
     "server":"服务",
     "blog":"博客",
-    "listTile":"列表项"
+    "listTile":"列表项",
+    "Chinese":"中文",
+    "English": "英文",
+    "system": "跟随系统",
+    "lightMode":"日间模式",
+    "darkMode":"夜间模式",
+    "changeLocale": "更改语言",
+    "changeThemeMode": "更改主题配色"
 }
