@@ -1,7 +1,7 @@
-import 'package:{{name.snakeCase()}}/app/app.dart';
-import 'package:{{name.snakeCase()}}/app/app_bloc_oberver.dart';
-import 'package:{{name.snakeCase()}}/bloc/counter/counter_bloc.dart';
-import 'package:{{name.snakeCase()}}/bloc/user_settings/user_setting_bloc.dart';
+import 'package:__brick__/app/app.dart';
+import 'package:__brick__/app/app_bloc_oberver.dart';
+import 'package:__brick__/bloc/counter/counter_bloc.dart';
+import 'package:__brick__/bloc/user_settings/user_setting_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';

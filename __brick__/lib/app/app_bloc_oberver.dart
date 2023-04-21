@@ -1,4 +1,4 @@
-import 'package:{{name.snakeCase()}}/utils/log/log.dart';
+import 'package:__brick__/utils/log/log.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// {@template app_bloc_observer}
