@@ -8,17 +8,8 @@ class UserSettingState {
   final UserTheme userTheme;
   final UserLocaleMode localMode;
   final String key;
-
-  Locale get locale {
-    switch (localMode) {
-      case UserLocaleMode.zh:
-        return const Locale('zh');
-      case UserLocaleMode.en:
-        return const Locale('en');
-      default:
-        return const Locale('en');
-    }
-  }
+  final Locale locale;
+  static Locale? systemLocale;
 
   ThemeMode get themeMode {
     switch (userTheme) {
@@ -31,14 +22,9 @@ class UserSettingState {
     }
   }
 
-  const UserSettingState(
-      {this.localMode = UserLocaleMode.system,
+  UserSettingState(
+      {this.locale = const Locale('en'),
+      this.localMode = UserLocaleMode.system,
       required this.userTheme,
       required this.key});
-
-  UserSettingState copyWith(
-      {UserTheme? userTheme, Locale? locale, String? key}) {
-    return UserSettingState(
-        userTheme: userTheme ?? this.userTheme, key: key ?? this.key);
-  }
 }

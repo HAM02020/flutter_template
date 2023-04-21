@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
@@ -7,12 +5,12 @@ part 'user_setting_state.dart';
 
 class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
   UserSettingCubit()
-      : super(const UserSettingState(
-            userTheme: UserTheme.system, key: "default key"));
+      : super(
+            UserSettingState(userTheme: UserTheme.system, key: "default key"));
 
   @override
   void onChange(Change<UserSettingState> change) {
-    log('cur = ${change.currentState.userTheme},next=${change.nextState.userTheme},curThemeMode = ${change.currentState.themeMode},nextThemeMode = ${change.nextState.themeMode}');
+    //log('cur = ${change.currentState.localMode},next=${change.nextState.localMode}');
     super.onChange(change);
   }
 
@@ -21,8 +19,30 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
   }
 
   void setLocaleMode(UserLocaleMode localeMode) {
+    Locale locale = state.locale;
+    switch (localeMode) {
+      case UserLocaleMode.zh:
+        locale = const Locale('zh');
+        break;
+      case UserLocaleMode.en:
+        locale = const Locale('en');
+        break;
+      default:
+        break;
+    }
     emit(UserSettingState(
-        localMode: localeMode, userTheme: state.userTheme, key: state.key));
+        localMode: localeMode,
+        userTheme: state.userTheme,
+        key: state.key,
+        locale: locale));
+  }
+
+  void setLocale(Locale locale) {
+    emit(UserSettingState(
+        localMode: state.localMode,
+        userTheme: state.userTheme,
+        key: state.key,
+        locale: locale));
   }
 
   void setTheme(UserTheme theme) {
@@ -54,13 +74,12 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
         localeMode = UserLocaleMode.en;
         break;
       case 'system':
-        localeMode = UserLocaleMode.en;
+        localeMode = UserLocaleMode.system;
         break;
       default:
         localeMode = UserLocaleMode.system;
         break;
     }
-
     String key = json["user_key_value"];
     return UserSettingState(
         localMode: localeMode, userTheme: userTheme, key: key);
@@ -98,7 +117,6 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
         localeModeStr = 'system';
         break;
     }
-
     return {
       "user_theme_mode_value": themeModeStr,
       "user_local_mode_value": localeModeStr,

@@ -41,7 +41,19 @@ class AppView extends StatelessWidget {
             S.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          locale: BlocProvider.of<UserSettingCubit>(context).state.locale,
+          locale: context.watch<UserSettingCubit>().state.locale,
+          localeResolutionCallback: (locale, supportedLocales) {
+            UserSettingState.systemLocale =
+                UserSettingState.systemLocale ?? locale;
+            if (state.localMode == UserLocaleMode.system &&
+                UserSettingState.systemLocale?.languageCode !=
+                    state.locale.languageCode) {
+              context
+                  .watch<UserSettingCubit>()
+                  .setLocale(UserSettingState.systemLocale!);
+            }
+            return null;
+          },
           builder: EasyLoading.init(
             builder: (context, child) {
               ScreenUtil.init(context);
