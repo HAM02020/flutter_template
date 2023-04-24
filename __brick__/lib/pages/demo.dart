@@ -14,7 +14,10 @@ class DemoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CounterBloc, CounterState>(
       builder: (context, state) {
-        var userSettingCubit = context.watch<UserSettingCubit>();
+        var userSettingCubit =
+            BlocProvider.of<UserSettingCubit>(context, listen: true);
+        //等价于
+        //var userSettingCubit = context.watch<UserSettingCubit>();
 
         return Center(
           child: Column(
@@ -139,8 +142,8 @@ class DemoPage extends StatelessWidget {
                     children: [
                       Text(S.of(context).lightMode),
                       Radio(
-                        value: UserTheme.light,
-                        groupValue: userSettingCubit.state.userTheme,
+                        value: ThemeMode.light,
+                        groupValue: userSettingCubit.state.themeMode,
                         onChanged: (value) => userSettingCubit.setTheme(value!),
                       ),
                     ],
@@ -149,8 +152,8 @@ class DemoPage extends StatelessWidget {
                     children: [
                       Text(S.of(context).darkMode),
                       Radio(
-                        value: UserTheme.dark,
-                        groupValue: userSettingCubit.state.userTheme,
+                        value: ThemeMode.dark,
+                        groupValue: userSettingCubit.state.themeMode,
                         onChanged: (value) {
                           userSettingCubit.setTheme(value!);
                         },
@@ -161,8 +164,8 @@ class DemoPage extends StatelessWidget {
                     children: [
                       Text(S.of(context).system),
                       Radio(
-                        value: UserTheme.system,
-                        groupValue: userSettingCubit.state.userTheme,
+                        value: ThemeMode.system,
+                        groupValue: userSettingCubit.state.themeMode,
                         onChanged: (value) => userSettingCubit.setTheme(value!),
                       ),
                     ],

@@ -4,9 +4,9 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 part 'user_setting_state.dart';
 
 class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
-  UserSettingCubit()
-      : super(
-            UserSettingState(userTheme: UserTheme.system, key: "default key"));
+  Locale? systemLocale;
+
+  UserSettingCubit() : super(UserSettingState(key: "default key"));
 
   @override
   void onChange(Change<UserSettingState> change) {
@@ -14,8 +14,24 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
     super.onChange(change);
   }
 
+  Locale? Function(Locale?, Iterable<Locale>)
+      get handleLocaleResolutionCallback {
+    return (locale, supportedLocales) {
+      systemLocale = systemLocale ?? locale;
+      if (state.localMode == UserLocaleMode.system &&
+          systemLocale?.languageCode != state.locale.languageCode) {
+        setLocale(systemLocale!);
+      }
+      return locale;
+    };
+  }
+
   void setKey(String key) {
-    emit(UserSettingState(userTheme: state.userTheme, key: key));
+    emit(UserSettingState(
+        themeMode: state.themeMode,
+        key: key,
+        localMode: state.localMode,
+        locale: state.locale));
   }
 
   void setLocaleMode(UserLocaleMode localeMode) {
@@ -33,7 +49,7 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
         break;
     }
     emit(UserSettingState(
-        userTheme: state.userTheme,
+        themeMode: state.themeMode,
         key: state.key,
         localMode: localeMode,
         locale: locale));
@@ -42,31 +58,18 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
   void setLocale(Locale locale) {
     emit(UserSettingState(
         localMode: state.localMode,
-        userTheme: state.userTheme,
+        themeMode: state.themeMode,
         key: state.key,
         locale: locale));
   }
 
-  void setTheme(UserTheme theme) {
+  void setTheme(ThemeMode theme) {
     emit(UserSettingState(
-        localMode: state.localMode, userTheme: theme, key: state.key));
+        localMode: state.localMode, themeMode: theme, key: state.key));
   }
 
   @override
   UserSettingState? fromJson(Map<String, dynamic> json) {
-    UserTheme userTheme = UserTheme.system;
-
-    switch (json['user_theme_mode_value']) {
-      case 'light':
-        userTheme = UserTheme.light;
-        break;
-      case 'dark':
-        userTheme = UserTheme.dark;
-        break;
-      default:
-        userTheme = UserTheme.system;
-        break;
-    }
     UserLocaleMode localeMode = UserLocaleMode.system;
     switch (json["user_local_mode_value"]) {
       case 'zh':
@@ -83,31 +86,30 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
         break;
     }
     String key = json["user_key_value"];
-
+    ThemeMode theMode = ThemeMode.system;
+    switch (json["user_theme_mode_value"]) {
+      case "ThemeMode.light":
+        theMode = ThemeMode.light;
+        break;
+      case "ThemeMode.dark":
+        theMode = ThemeMode.dark;
+        break;
+      case "ThemeMode.system":
+        theMode = ThemeMode.system;
+        break;
+      default:
+        break;
+    }
     return UserSettingState(
+      locale: Locale(json["user_locale_value"]),
       localMode: localeMode,
-      userTheme: userTheme,
+      themeMode: theMode,
       key: key,
     );
   }
 
   @override
   Map<String, dynamic>? toJson(UserSettingState state) {
-    String themeModeStr = 'system';
-    switch (state.userTheme) {
-      case UserTheme.light:
-        themeModeStr = 'light';
-        break;
-      case UserTheme.dark:
-        themeModeStr = 'dark';
-        break;
-      case UserTheme.system:
-        themeModeStr = 'system';
-        break;
-      default:
-        themeModeStr = 'system';
-        break;
-    }
     String localeModeStr = 'system';
     switch (state.localMode) {
       case UserLocaleMode.zh:
@@ -124,8 +126,9 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
         break;
     }
     return {
-      "user_theme_mode_value": themeModeStr,
+      "user_theme_mode_value": state.themeMode.toString(),
       "user_local_mode_value": localeModeStr,
+      "user_locale_value": state.locale.languageCode.toString(),
       "user_key_value": state.key,
     };
   }
