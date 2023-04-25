@@ -11,12 +11,12 @@ class AppBlocObserver extends BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
     super.onChange(bloc, change);
-    if (bloc is Cubit) zkLog(change);
+    if (bloc is Cubit) zkLogger.d(change);
   }
 
   @override
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
-    zkLog(transition);
+    zkLogger.d(transition);
   }
 }
