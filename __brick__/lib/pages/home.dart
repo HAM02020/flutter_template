@@ -1,6 +1,7 @@
 import 'package:__brick__/generated/l10n.dart';
 import 'package:__brick__/bloc/counter/counter_bloc.dart';
 import 'package:__brick__/pages/demo.dart';
+import 'package:__brick__/pages/permission_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -57,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
             create: (context) => GetIt.instance.get<CounterBloc>(),
             child: const DemoPage(),
           ),
-          const Center(child: Text("2")),
+          const PermissionPage(),
           const Center(child: Text("3"))
         ],
       ),

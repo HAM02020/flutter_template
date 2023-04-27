@@ -1,0 +1,18 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by sheng on 2023/4/27.
+  
+ 
+ 
+ 
+*/
+"NSCameraUsageDescription" ="当前需要拍照来编辑功能，您是否允许打开相机？";
+
+"NSMicrophoneUsageDescription" = "当前需要录音权限，您是否允许？";
+
+"NSPhotoLibraryAddUsageDescription" = "当前需要保存图片至相册，您是否允许?";
+
+"NSPhotoLibraryUsageDescription"="当前功能需要访问您的相册来编辑功能，您是否允许打开相册？";
+
