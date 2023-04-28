@@ -16,3 +16,4 @@
 
 "NSPhotoLibraryUsageDescription"="当前功能需要访问您的相册来编辑功能，您是否允许打开相册？";
 
+"NSLocationAlwaysAndWhenInUseUsageDescription"="当前功能需要访问您的定位，您是否允许打开定位？";
