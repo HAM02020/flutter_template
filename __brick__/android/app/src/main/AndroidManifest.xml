@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.u{{name.snakeCase()}}">
+    package="com.example.u__brick__">
    <application
-        android:label="{{name.snakeCase()}}"
+        android:label="__brick__"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
