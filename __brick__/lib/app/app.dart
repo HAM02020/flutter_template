@@ -1,5 +1,6 @@
-import 'package:__brick__/app/routes.dart';
-import 'package:__brick__/bloc/user_settings/user_setting_bloc.dart';
+import 'package:__brick__/app/bloc/user_settings/user_setting_bloc.dart';
+import 'package:__brick__/app/route/routes.dart';
+import 'package:__brick__/app/theme/color_schemes.g.dart';
 import 'package:__brick__/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,8 +8,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
-
-import 'color_schemes.g.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

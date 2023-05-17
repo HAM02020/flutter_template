@@ -1,5 +1,5 @@
+import 'package:__brick__/app/bloc/user_settings/user_setting_bloc.dart';
 import 'package:__brick__/bloc/counter/counter_bloc.dart';
-import 'package:__brick__/bloc/user_settings/user_setting_bloc.dart';
 import 'package:__brick__/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
