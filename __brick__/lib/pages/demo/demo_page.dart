@@ -1,11 +1,14 @@
 import 'package:__brick__/app/bloc/user_settings/user_setting_bloc.dart';
-import 'package:__brick__/bloc/counter/counter_bloc.dart';
+import 'package:__brick__/app/route/routes.dart';
+
 import 'package:__brick__/generated/l10n.dart';
+import 'package:__brick__/pages/demo/bloc/counter_bloc.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it/get_it.dart';
-import 'package:go_router/go_router.dart';
+
 
 class DemoPage extends StatelessWidget {
   const DemoPage({super.key});
@@ -25,7 +28,7 @@ class DemoPage extends StatelessWidget {
             children: <Widget>[
               FloatingActionButton.extended(
                 heroTag: "toSecondPage",
-                onPressed: () => context.go('/second'),
+                onPressed: () => Navigator.pushNamed(context, Routes.second),
                 label: Text(S.of(context).toSecondPage),
               ),
               Container(
