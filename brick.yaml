@@ -25,7 +25,7 @@ environment:
 #  * an optional prompt phrase used when asking for the variable
 #  * a list of values (enums only)
 vars:
-  name:
+  project_name:
     type: string
     description: Your project name
     default: Demo
