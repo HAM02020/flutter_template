@@ -1,4 +1,4 @@
-import 'package:{{name.snakeCase()}}/utils/log/log.dart';
+import 'package:{{project_name.snakeCase()}}/utils/log/log.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// {@template app_bloc_observer}
@@ -11,7 +11,7 @@ class AppBlocObserver extends BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
     super.onChange(bloc, change);
-    if (bloc is Cubit) zkLogger.d(change);
+    
   }
 
   @override

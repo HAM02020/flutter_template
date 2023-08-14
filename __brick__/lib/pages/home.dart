@@ -1,7 +1,8 @@
-import 'package:{{name.snakeCase()}}/generated/l10n.dart';
-import 'package:{{name.snakeCase()}}/bloc/counter/counter_bloc.dart';
-import 'package:{{name.snakeCase()}}/pages/demo.dart';
-import 'package:{{name.snakeCase()}}/pages/permission_page.dart';
+import 'package:{{project_name.snakeCase()}}/generated/l10n.dart';
+import 'package:{{project_name.snakeCase()}}/pages/demo/bloc/counter_bloc.dart';
+
+import 'package:{{project_name.snakeCase()}}/pages/demo/demo_page.dart';
+import 'package:{{project_name.snakeCase()}}/pages/permission/permission_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

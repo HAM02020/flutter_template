@@ -1,6 +1,7 @@
-import 'package:{{name.snakeCase()}}/utils/log/log.dart';
+import 'package:{{project_name.snakeCase()}}/utils/log/log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class PermissionPage extends StatefulWidget {
   const PermissionPage({super.key});
@@ -25,54 +26,49 @@ class _PermissionPageState extends State<PermissionPage> {
         child: ListView(children: [
           ElevatedButton(
             onPressed: () async {
-              final res = await platform.invokeMethod('ZKCameraPermission');
+              final res = await Permission.camera.request();
               zkLogger.d(res);
             },
             child: const Text("获取相机权限"),
           ),
           ElevatedButton(
             onPressed: () async {
-              final res = await platform.invokeMethod('ZKMicrophonePermission');
+              final res = await Permission.microphone.request();
               zkLogger.d(res);
             },
             child: const Text("获取麦克风权限"),
           ),
           ElevatedButton(
             onPressed: () async {
-              final res =
-                  await platform.invokeMethod('ZKPhotoLibraryUsagePermission');
+              final res = await Permission.photos.request();
               zkLogger.d(res);
             },
             child: const Text("获取相册权限"),
           ),
           ElevatedButton(
             onPressed: () async {
-              final res = await platform
-                  .invokeMethod('ZKPhotoLibraryAddUsagePermission');
+              final res = await Permission.photosAddOnly.request();
               zkLogger.d(res);
             },
             child: const Text("获取添加照片权限"),
           ),
           ElevatedButton(
             onPressed: () async {
-              final res =
-                  await platform.invokeMethod('ZKLocationUsagePermission');
+              final res = await Permission.location.request();
               zkLogger.d(res);
             },
             child: const Text("获取定位权限"),
           ),
           ElevatedButton(
             onPressed: () async {
-              final res =
-                  await platform.invokeMethod('ZKBluetoothUsagePermission');
+              final res = await Permission.bluetooth.request();
               zkLogger.d(res);
             },
             child: const Text("获取蓝牙权限"),
           ),
           ElevatedButton(
             onPressed: () async {
-              final res =
-                  await platform.invokeMethod('ZKNotificationUsagePermission');
+              final res = await Permission.notification.request();
               zkLogger.d(res);
             },
             child: const Text("获取通知权限"),

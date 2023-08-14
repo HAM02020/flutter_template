@@ -1,11 +1,14 @@
-import 'package:{{name.snakeCase()}}/bloc/counter/counter_bloc.dart';
-import 'package:{{name.snakeCase()}}/bloc/user_settings/user_setting_bloc.dart';
-import 'package:{{name.snakeCase()}}/generated/l10n.dart';
+import 'package:{{project_name.snakeCase()}}/app/bloc/user_settings/user_setting_bloc.dart';
+import 'package:{{project_name.snakeCase()}}/app/route/routes.dart';
+
+import 'package:{{project_name.snakeCase()}}/generated/l10n.dart';
+import 'package:{{project_name.snakeCase()}}/pages/demo/bloc/counter_bloc.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it/get_it.dart';
-import 'package:go_router/go_router.dart';
+
 
 class DemoPage extends StatelessWidget {
   const DemoPage({super.key});
@@ -14,10 +17,10 @@ class DemoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CounterBloc, CounterState>(
       builder: (context, state) {
-        var userSettingCubit =
-            BlocProvider.of<UserSettingCubit>(context, listen: true);
+        // var userSettingCubit =
+        //     BlocProvider.of<UserSettingCubit>(context, listen: true);
         //等价于
-        //var userSettingCubit = context.watch<UserSettingCubit>();
+        final userSettingCubit = GetIt.I.get<UserSettingCubit>();
 
         return Center(
           child: Column(
@@ -25,7 +28,7 @@ class DemoPage extends StatelessWidget {
             children: <Widget>[
               FloatingActionButton.extended(
                 heroTag: "toSecondPage",
-                onPressed: () => context.go('/second'),
+                onPressed: () => Navigator.pushNamed(context, Routes.second),
                 label: Text(S.of(context).toSecondPage),
               ),
               Container(
