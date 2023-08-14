@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 
 /// logger
-final Logger zkLogger = Logger();
+final Logger zkLogger = Logger(printer: PrettyPrinter(colors: true,methodCount: 0,errorMethodCount: 8,lineLength: 120,printTime: false,printEmojis: true));
 
 /// 收集日志
 void collectLog(String line) {}
@@ -36,7 +36,7 @@ void zkRunZoneGuard(void Function() body) {
       zoneSpecification: ZoneSpecification(
         //拦截应用内所有print
         print: (self, parent, zone, line) {
-          parent.print(zone, "Intercepted: $line");
+          parent.print(zone, line);
           collectLog(line);
         },
         //处理所有未被捕获的一场

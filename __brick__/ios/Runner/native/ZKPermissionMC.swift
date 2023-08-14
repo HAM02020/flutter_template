@@ -199,26 +199,8 @@ class ZKPermissionMC : NSObject{
         
     }
     private func onZKLocalNetworkAuthorizationCall(){
-//        let string = "https://www.google.com"
-//        
-//        guard let url = URL(string: string) else {
-//            fatalError("wrong url")
-//        }
-//        var request = URLRequest.init(url:url)
-//        request.httpMethod = "get"
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            print(error)
-//        }
-//        task.resume()
         // 本地网络权限
-        if #available(iOS 14.0, *) {
-            let localNS = LocalNetworkAuthorization()
-            localNS.requestAuthorization { isAgree in
-                debugPrint("是否同意\(isAgree)")
-            }
-        } else {
-            
-        }
+        
     }
     
 }

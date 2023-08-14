@@ -17,10 +17,10 @@ class DemoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CounterBloc, CounterState>(
       builder: (context, state) {
-        var userSettingCubit =
-            BlocProvider.of<UserSettingCubit>(context, listen: true);
+        // var userSettingCubit =
+        //     BlocProvider.of<UserSettingCubit>(context, listen: true);
         //等价于
-        //var userSettingCubit = context.watch<UserSettingCubit>();
+        final userSettingCubit = GetIt.I.get<UserSettingCubit>();
 
         return Center(
           child: Column(

@@ -47,9 +47,8 @@ class AppView extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
             S.delegate,
           ],
-          
           supportedLocales: S.delegate.supportedLocales,
-          locale: context.watch<UserSettingCubit>().state.locale,
+          locale: state.locale,
           localeResolutionCallback:
               context.read<UserSettingCubit>().handleLocaleResolutionCallback,
           navigatorObservers: [FlutterSmartDialog.observer],

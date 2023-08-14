@@ -52,6 +52,7 @@ dependencies:
   equatable: ^2.0.5 # 对象比较库
   logger: ^1.3.0 # 格式化log输入库
   flutter_native_splash: ^2.1.6 # 启动页
+  permission_handler: ^10.4.3
   
 
 
