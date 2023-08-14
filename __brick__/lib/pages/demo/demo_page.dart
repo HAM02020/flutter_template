@@ -1,9 +1,9 @@
+import 'package:__brick__/app/application.dart';
 import 'package:__brick__/app/bloc/user_settings/user_setting_bloc.dart';
 import 'package:__brick__/app/route/routes.dart';
 
 import 'package:__brick__/generated/l10n.dart';
 import 'package:__brick__/pages/demo/bloc/counter_bloc.dart';
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,20 +15,17 @@ class DemoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userSettingCubit =
+            BlocProvider.of<UserSettingCubit>(context, listen: true);
     return BlocBuilder<CounterBloc, CounterState>(
       builder: (context, state) {
-        // var userSettingCubit =
-        //     BlocProvider.of<UserSettingCubit>(context, listen: true);
-        //等价于
-        final userSettingCubit = GetIt.I.get<UserSettingCubit>();
-
         return Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               FloatingActionButton.extended(
                 heroTag: "toSecondPage",
-                onPressed: () => Navigator.pushNamed(context, Routes.second),
+                onPressed: () => Application.router.navigateTo(context, Routes.second),
                 label: Text(S.of(context).toSecondPage),
               ),
               Container(
