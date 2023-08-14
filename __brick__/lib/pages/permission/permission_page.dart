@@ -1,4 +1,4 @@
-import 'package:__brick__/utils/log/log.dart';
+import 'package:{{project_name.snakeCase()}}/utils/log/log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';

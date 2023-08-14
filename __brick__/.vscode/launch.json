@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "__brick__",
+            "name": "{{project_name.snakeCase()}}",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "__brick__ (profile mode)",
+            "name": "{{project_name.snakeCase()}} (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "__brick__ (release mode)",
+            "name": "{{project_name.snakeCase()}} (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

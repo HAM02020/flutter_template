@@ -1,8 +1,8 @@
-import 'package:__brick__/app/bloc/user_settings/user_setting_bloc.dart';
-import 'package:__brick__/app/route/routes.dart';
+import 'package:{{project_name.snakeCase()}}/app/bloc/user_settings/user_setting_bloc.dart';
+import 'package:{{project_name.snakeCase()}}/app/route/routes.dart';
 
-import 'package:__brick__/generated/l10n.dart';
-import 'package:__brick__/pages/demo/bloc/counter_bloc.dart';
+import 'package:{{project_name.snakeCase()}}/generated/l10n.dart';
+import 'package:{{project_name.snakeCase()}}/pages/demo/bloc/counter_bloc.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

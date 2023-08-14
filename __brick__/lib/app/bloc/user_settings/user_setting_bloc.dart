@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:__brick__/generated/l10n.dart';
+import 'package:{{project_name.snakeCase()}}/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 

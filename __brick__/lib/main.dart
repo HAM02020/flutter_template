@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:__brick__/app/app.dart';
-import 'package:__brick__/app/bloc/app_bloc_oberver.dart';
-import 'package:__brick__/app/bloc/user_settings/user_setting_bloc.dart';
-import 'package:__brick__/app/route/routes.dart';
-import 'package:__brick__/pages/demo/bloc/counter_bloc.dart';
+import 'package:{{project_name.snakeCase()}}/app/app.dart';
+import 'package:{{project_name.snakeCase()}}/app/bloc/app_bloc_oberver.dart';
+import 'package:{{project_name.snakeCase()}}/app/bloc/user_settings/user_setting_bloc.dart';
+import 'package:{{project_name.snakeCase()}}/app/route/routes.dart';
+import 'package:{{project_name.snakeCase()}}/pages/demo/bloc/counter_bloc.dart';
 
-import 'package:__brick__/utils/log/log.dart';
+import 'package:{{project_name.snakeCase()}}/utils/log/log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

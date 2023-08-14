@@ -1,8 +1,8 @@
-import 'package:__brick__/app/bloc/user_settings/user_setting_bloc.dart';
-import 'package:__brick__/app/route/routes.dart';
-import 'package:__brick__/app/theme/color_schemes.g.dart';
-import 'package:__brick__/app/theme/theme.dart';
-import 'package:__brick__/generated/l10n.dart';
+import 'package:{{project_name.snakeCase()}}/app/bloc/user_settings/user_setting_bloc.dart';
+import 'package:{{project_name.snakeCase()}}/app/route/routes.dart';
+import 'package:{{project_name.snakeCase()}}/app/theme/color_schemes.g.dart';
+import 'package:{{project_name.snakeCase()}}/app/theme/theme.dart';
+import 'package:{{project_name.snakeCase()}}/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

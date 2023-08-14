@@ -1,4 +1,4 @@
-package com.example.u__brick__
+package com.example.u{{project_name.snakeCase()}}
 
 import io.flutter.embedding.android.FlutterActivity
 

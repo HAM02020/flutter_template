@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="537e6f26-3eb3-4bbd-9e99-c9bc096defc1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/__brick__/lib/app/app_bloc_oberver.dart" beforeDir="false" afterPath="$PROJECT_DIR$/__brick__/lib/app/bloc/app_bloc_oberver.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__brick__/lib/app/color_schemes.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/__brick__/lib/app/theme/color_schemes.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__brick__/lib/app/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/__brick__/lib/app/route/routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__brick__/lib/bloc/user_settings/user_setting_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/__brick__/lib/app/bloc/user_settings/user_setting_bloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__brick__/lib/bloc/user_settings/user_setting_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/__brick__/lib/app/bloc/user_settings/user_setting_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/app_bloc_oberver.dart" beforeDir="false" afterPath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/bloc/app_bloc_oberver.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/color_schemes.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/theme/color_schemes.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/route/routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/bloc/user_settings/user_setting_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/bloc/user_settings/user_setting_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/bloc/user_settings/user_setting_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/bloc/user_settings/user_setting_state.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +48,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/__brick__/lib/app/bloc" />
-      <recent name="$PROJECT_DIR$/__brick__/lib/app/theme" />
-      <recent name="$PROJECT_DIR$/__brick__/lib/app/route" />
+      <recent name="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/bloc" />
+      <recent name="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/theme" />
+      <recent name="$PROJECT_DIR$/{{project_name.snakeCase()}}/lib/app/route" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

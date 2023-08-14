@@ -1,4 +1,4 @@
-import 'package:__brick__/app/theme/color_schemes.g.dart';
+import 'package:{{project_name.snakeCase()}}/app/theme/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

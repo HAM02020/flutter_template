@@ -1,5 +1,5 @@
-import 'package:__brick__/pages/home.dart';
-import 'package:__brick__/pages/second/second.dart';
+import 'package:{{project_name.snakeCase()}}/pages/home.dart';
+import 'package:{{project_name.snakeCase()}}/pages/second/second.dart';
 import 'package:fluro/fluro.dart';
 
 class Routes {
