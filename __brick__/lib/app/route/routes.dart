@@ -1,23 +1,30 @@
 import 'package:__brick__/pages/home.dart';
 import 'package:__brick__/pages/second/second.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter/material.dart';
 
 class Routes {
   static FluroRouter router = FluroRouter();
   static String home = '/';
   static String second = '/second';
 
+  static void configureRouters() {
+    _define(home, handler: (context, paramaters) {
+      return const MyHomePage(title: '');
+    });
 
-  static void configureRouters(FluroRouter router) {
-    router.define(home, handler: Handler(handlerFunc: (context, paramaters) {
-      return const MyHomePage(title: '',);
-    }));
-
-    router.define(second,
-        handler: Handler(handlerFunc: (context, paramaters) {
+    _define(second, handler: (context, paramaters) {
       return const SecondPage();
-    }));
+    });
+
   }
 
+  static void _define(String path,
+      {required Widget? Function(BuildContext?, Map<String, List<String>>)
+          handler,
+      TransitionType transitionType = TransitionType.cupertino}) {
+    router.define(path,
+        handler: Handler(handlerFunc: handler), transitionType: transitionType);
+  }
+  
 }
-

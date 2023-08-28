@@ -31,7 +31,7 @@ Future<void> init() async {
   Future.delayed(const Duration(seconds: 3))
       .then((value) => FlutterNativeSplash.remove());
   await ScreenUtil.ensureScreenSize();
-  Routes.configureRouters(Routes.router);
+  Routes.configureRouters();
   HydratedBloc.storage = await HydratedStorage.build(
       storageDirectory: await getApplicationDocumentsDirectory());
   GetIt.I.registerSingleton<UserSettingCubit>(UserSettingCubit());
@@ -74,8 +74,6 @@ class AppView extends StatelessWidget {
           ],
           supportedLocales: S.delegate.supportedLocales,
           locale: state.locale,
-          localeResolutionCallback:
-              context.read<UserSettingCubit>().handleLocaleResolutionCallback,
           navigatorObservers: [FlutterSmartDialog.observer],
           builder: FlutterSmartDialog.init(),
         );

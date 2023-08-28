@@ -1,51 +1,51 @@
 import 'dart:convert';
-
 import 'package:__brick__/generated/l10n.dart';
+import 'package:__brick__/utils/log/log.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 part 'user_setting_state.dart';
 
 class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
-  Locale? _systemLocale;
-
-  UserSettingCubit() : super(UserSettingState());
-
-  @override
-  void onChange(Change<UserSettingState> change) {
-    //log('cur = ${change.currentState.localMode},next=${change.nextState.localMode}');
-    super.onChange(change);
-  }
-
-  Locale? Function(Locale?, Iterable<Locale>)
-      get handleLocaleResolutionCallback {
-    return (locale, supportedLocales) {
-      _systemLocale = _systemLocale ?? locale;
-      if (state.localMode == UserLocaleMode.system &&
-          _systemLocale?.languageCode != state.locale.languageCode &&
-          S.delegate.supportedLocales.map((e) => e.languageCode).contains(_systemLocale!.languageCode)) {
-        _setLocale(_systemLocale!);
-      }
-      return locale;
+  UserSettingCubit() : super(UserSettingState()){
+    PlatformDispatcher.instance.onLocaleChanged = (){
+      if (state.localMode != UserLocaleMode.system) return;
+      setLocaleMode(UserLocaleMode.system);
     };
   }
 
   void setLocaleMode(UserLocaleMode localeMode) {
-    if (localeMode.name == "system"){
-      emit(state.copyWith(localMode: localeMode));
-    }else{
-      emit(state.copyWith(localMode: localeMode, locale: Locale(localeMode.name)));
+    zkLogger.d('setLocaleMode');
+    if (localeMode == UserLocaleMode.system) {
+      emit(state.copyWith(localMode: localeMode, locale: systemLocale));
+    } else {
+      emit(state.copyWith(
+          localMode: localeMode, locale: Locale(localeMode.name)));
     }
-    
   }
-
-   void _setLocale(Locale locale) {
-    emit(state.copyWith(locale: locale));
-    }
 
   void setTheme(ThemeMode theme) {
     emit(state.copyWith(themeMode: theme));
   }
+
+  Locale get systemLocale {
+    final locales = PlatformDispatcher.instance.locales;
+    late Locale supportLocale;
+    try {
+      supportLocale = locales
+          .firstWhere((locale) => S.delegate.supportedLocales.contains(locale));
+    } catch (_) {
+      supportLocale = locales.firstWhere(
+        (locale) => S.delegate.supportedLocales
+            .map((e) => e.languageCode)
+            .contains(locale.languageCode),
+        orElse: () => const Locale('en'),
+      );
+    }
+    return supportLocale;
+  }
+
 
   @override
   UserSettingState? fromJson(Map<String, dynamic> json) {
