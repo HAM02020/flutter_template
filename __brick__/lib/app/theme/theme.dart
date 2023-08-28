@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTheme {
+  
   /// 配置App字体大小
-  late TextTheme textTheme = TextTheme(
+  final TextTheme textTheme = TextTheme(
     displayLarge: TextStyle(
       fontSize: 13.sp,
       fontWeight: FontWeight.bold,
@@ -42,10 +43,12 @@ class AppTheme {
         fontSize: 8.sp, fontWeight: FontWeight.normal, color: Colors.black),
   );
 
-  ThemeData theme({bool isdark = false}) {
+  ThemeData theme({bool isdark = false,Color? primary}) {
+    var colorScheme = isdark ? darkColorScheme : lightColorScheme;
+    colorScheme = colorScheme.copyWith(primary: primary,secondary: primary);
     return ThemeData(
         useMaterial3: false,
-        colorScheme: isdark ? darkColorScheme : lightColorScheme,
+        colorScheme: colorScheme,
         textTheme: textTheme);
   }
 }

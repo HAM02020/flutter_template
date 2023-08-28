@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:__brick__/generated/l10n.dart';
 import 'package:__brick__/utils/log/log.dart';
 import 'package:flutter/foundation.dart';
@@ -9,10 +10,7 @@ part 'user_setting_state.dart';
 
 class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
   UserSettingCubit() : super(UserSettingState()){
-    PlatformDispatcher.instance.onLocaleChanged = (){
-      if (state.localMode != UserLocaleMode.system) return;
-      setLocaleMode(UserLocaleMode.system);
-    };
+    _observeLocale();
   }
 
   void setLocaleMode(UserLocaleMode localeMode) {
@@ -25,8 +23,21 @@ class UserSettingCubit extends Cubit<UserSettingState> with HydratedMixin {
     }
   }
 
-  void setTheme(ThemeMode theme) {
+  void setThemeMode(ThemeMode theme) {
     emit(state.copyWith(themeMode: theme));
+  }
+  void setPrimaryColor(Color? color) {
+    emit(state.copyWith(primary: () => color,));
+  }
+
+  void _observeLocale(){
+    if (state.localMode == UserLocaleMode.system){
+      setLocaleMode(UserLocaleMode.system);
+    }
+    PlatformDispatcher.instance.onLocaleChanged = (){
+      if (state.localMode != UserLocaleMode.system) return;
+      setLocaleMode(UserLocaleMode.system);
+    };
   }
 
   Locale get systemLocale {

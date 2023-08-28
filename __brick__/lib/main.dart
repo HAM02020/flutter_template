@@ -61,8 +61,8 @@ class AppView extends StatelessWidget {
     return BlocBuilder<UserSettingCubit, UserSettingState>(
       builder: (context, state) {
         return MaterialApp(
-          theme: AppTheme().theme(),
-          darkTheme: AppTheme().theme(isdark: true),
+          theme: AppTheme().theme(primary: state.primary),
+          darkTheme: AppTheme().theme(isdark: true,primary: state.primary),
           themeMode: state.themeMode,
           onGenerateRoute: Routes.router.generator,
           initialRoute: '/',
